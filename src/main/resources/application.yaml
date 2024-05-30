@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    db1:
+      url: jdbc:postgresql://localhost:5441/aggregating_users1_repository
+      username: postgres
+      password: postgres
+      driver-class-name: org.postgresql.Driver
+    db2:
+      url: jdbc:postgresql://localhost:5442/aggregating_users2_repository
+      username: password
+      password: admin
+      driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        default_batch_fetch_size: 50
+        show_sql: true
+        format_sql: true
+        hbm2ddl.auto: validate
+        jdbc:
+          batch_size: 50
+          fetch_size: 50
+    open-in-view: false
+    database: postgresql
+  main:
+    allow-bean-definition-overriding: false
+
+
+logging:
+  level:
+    root: info
+    org.springframework.jdbc.core: trace
+    com.dmdev.spring.database.pool.ConnectionPool: info
+    com.dmdev.spring.database.repository.CompanyRepository: info
+    com.dmdev.spring.listener: info
+  file:
+    name: payment_utility.log
+    path: /

@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - logicalFilePath: db.changelog-2.1_upload_user_db1.yaml
+  - changeSet:
+      id: 4
+      author: lao
+      changes:
+        - loadUpdateData:
+            columns:
+              - column:
+                  header: id
+                  name: id
+              - column:
+                  index: 2
+                  name: username
+              - column:
+                  index: 3
+                  name: name
+              - column:
+                  index: 4
+                  name: surname
+            tableName: user
+            schemaName: public
+            catalogName: aggregating_users2_repository
+            primaryKey: id # the name of the table column, not the csv file against which the presence of this row will be checked
+            file:  "db/changelog/csv/user_data_db2.csv"
