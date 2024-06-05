@@ -60,7 +60,7 @@ public class DB1Configuration {
     }
 
     @Primary
-    @Bean
+    @Bean("db1TransactionManager")
     public PlatformTransactionManager db1TransactionManager() {
 
         JpaTransactionManager transactionManager = new JpaTransactionManager();

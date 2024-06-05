@@ -55,7 +55,7 @@ public class DB2Configuration {
         return dataSource;
     }
 
-    @Bean
+    @Bean("db2TransactionManager")
     public PlatformTransactionManager db2TransactionManager() {
 
         JpaTransactionManager transactionManager = new JpaTransactionManager();
