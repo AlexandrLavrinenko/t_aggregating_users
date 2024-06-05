@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+  db1:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: aggregating_users1_repository
+    ports:
+      - "5441:5432"
+
+  db2:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: aggregating_users2_repository
+    ports:
+      - "5442:5432"

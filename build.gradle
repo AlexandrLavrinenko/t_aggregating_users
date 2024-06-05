@@ -19,7 +19,7 @@ configurations {
 
 apply from: 'version.gradle'
 
-group = 'org.rudiyorm'
+group = 'ua.comparus'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -37,12 +37,15 @@ dependencies {
     implementation 'org.springframework.data:spring-data-envers'
     implementation 'org.liquibase:liquibase-core'
     implementation 'org.projectlombok:lombok'
+    implementation "org.mapstruct:mapstruct:${versions.mapstruct}"
 
     implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
     annotationProcessor("com.querydsl:querydsl-apt:5.0.0:jakarta")
     annotationProcessor("jakarta.persistence:jakarta.persistence-api:3.1.0")
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation "org.testng:testng:6.10", "org.easytesting:fest-assert:1.4"
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.6.0.Beta1"
 //    testImplementation "org.testcontainers:postgresql:${versions.testcontainers}"
 }
 

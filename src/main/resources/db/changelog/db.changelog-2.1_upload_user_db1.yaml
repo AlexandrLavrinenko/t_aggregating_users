@@ -18,7 +18,7 @@ databaseChangeLog:
               - column:
                   index: 4
                   name: surname
-            tableName: user
+            tableName: users
             schemaName: public
             catalogName: aggregating_users2_repository
             primaryKey: id # the name of the table column, not the csv file against which the presence of this row will be checked
