@@ -29,31 +29,6 @@ server:
     context-path: /api/v1
 
 spring:
-  datasource:
-    db1:
-      name: data-base-1
-      strategy: postgres
-      url: jdbc:postgresql://localhost:5441/aggregating_users1_repository
-      table: user
-      username: postgres
-      password: postgres
-      mapping:
-        id: id
-        username: username
-        name: name
-        surname: surname
-    db2:
-      name: data-base-2
-      strategy: postgres
-      url: jdbc:postgresql://localhost:5442/aggregating_users2_repository
-      table: users
-      username: password
-      password: admin
-      mapping:
-        id: user_id
-        username: login
-        name: first_name
-        surname: last_name
   jpa:
     properties:
       hibernate:

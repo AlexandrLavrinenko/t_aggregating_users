@@ -8,7 +8,7 @@ import ua.comparus.database.entity.User;
 import java.util.List;
 import java.util.UUID;
 
-public interface UserRepository /*extends JpaRepository<User, UUID>, JpaSpecificationExecutor<User>*/ {
+public interface UserRepository extends JpaRepository<User, UUID>, JpaSpecificationExecutor<User> {
 
     List<User> getAllUsersByDataSourceName(DataSourceInfo dataSourceInfo);
 }
