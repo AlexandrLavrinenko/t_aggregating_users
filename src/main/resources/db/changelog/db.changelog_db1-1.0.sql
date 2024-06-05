@@ -3,10 +3,9 @@
 --changeset lao:1
 CREATE TABLE IF NOT EXISTS aggregating_users1_repository.public.user
 (
-    id       TEXT UNIQUE,
+    id       uuid PRIMARY KEY,
     username TEXT UNIQUE,
     name     TEXT,
-    surname  TEXT,
-    PRIMARY KEY (id)
+    surname  TEXT
 );
 --rollback DROP TABLE aggregating_users1_repository.public.user;

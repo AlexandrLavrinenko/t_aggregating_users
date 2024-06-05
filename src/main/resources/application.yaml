@@ -1,15 +1,59 @@
+db:
+  data-sources:
+  - name: data-base-1
+    strategy: postgres
+    url: jdbc:postgresql://localhost:5441/aggregating_users1_repository
+    table: user
+    user: postgres
+    password: postgres
+    mapping:
+      id: id
+      username: username
+      name: name
+      surname: surname
+  - name: data-base-2
+    strategy: postgres
+    url: jdbc:postgresql://localhost:5442/aggregating_users2_repository
+    table: users
+    user: password
+    password: admin
+    mapping:
+      id: user_id
+      username: login
+      name: first_name
+      surname: last_name
+
+server:
+  port: 8000
+  servlet:
+    context-path: /api/v1
+
 spring:
   datasource:
     db1:
+      name: data-base-1
+      strategy: postgres
       url: jdbc:postgresql://localhost:5441/aggregating_users1_repository
+      table: user
       username: postgres
       password: postgres
-      driver-class-name: org.postgresql.Driver
+      mapping:
+        id: id
+        username: username
+        name: name
+        surname: surname
     db2:
+      name: data-base-2
+      strategy: postgres
       url: jdbc:postgresql://localhost:5442/aggregating_users2_repository
+      table: users
       username: password
       password: admin
-      driver-class-name: org.postgresql.Driver
+      mapping:
+        id: user_id
+        username: login
+        name: first_name
+        surname: last_name
   jpa:
     properties:
       hibernate:
@@ -23,7 +67,7 @@ spring:
     open-in-view: false
     database: postgresql
   main:
-    allow-bean-definition-overriding: false
+    allow-bean-definition-overriding: true
 
 
 logging:
