@@ -3,7 +3,7 @@ databaseChangeLog:
       file: db/changelog/db.changelog_db1-1.0.sql
   - include:
       file: db/changelog/db.changelog-1.1_upload_user_db1.yaml
-  - include:
-      file: db/changelog/db.changelog_db2-2.0.sql
-  - include:
-      file: db/changelog/db.changelog-2.1_upload_user_db1.yaml
+#  - include:
+#      file: db/changelog/db.changelog_db2-2.0.sql
+#  - include:
+#      file: db/changelog/db.changelog-2.1_upload_user_db1.yaml

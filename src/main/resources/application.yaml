@@ -1,5 +1,5 @@
 db:
-  data-sources:
+  data-source-definitions:
   - name: data-base-1
     strategy: postgres
     url: jdbc:postgresql://localhost:5441/aggregating_users1_repository
@@ -53,5 +53,5 @@ logging:
     com.dmdev.spring.database.repository.CompanyRepository: info
     com.dmdev.spring.listener: info
   file:
-    name: payment_utility.log
+    name: t_aggregating_users.log
     path: /

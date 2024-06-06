@@ -1,0 +1,24 @@
+db:
+  data-source-definitions:
+  - name: data-base-1
+    strategy: postgres
+    url: jdbc:postgresql://localhost:5441/aggregating_users1_repository
+    table: user
+    user: postgres
+    password: postgres
+    mapping:
+      id: id
+      username: username
+      name: name
+      surname: surname
+#  - name: data-base-2
+#    strategy: postgres
+#    url: jdbc:postgresql://localhost:5442/aggregating_users2_repository
+#    table: users
+#    user: password
+#    password: admin
+#    mapping:
+#      id: user_id
+#      username: login
+#      name: first_name
+#      surname: last_name

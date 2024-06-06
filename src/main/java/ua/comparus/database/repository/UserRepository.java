@@ -2,16 +2,25 @@ package ua.comparus.database.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import ua.comparus.config.property.DataSourceInfo;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import ua.comparus.database.entity.User;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface UserRepository extends JpaRepository<User, UUID>, JpaSpecificationExecutor<User> {
+import static ua.comparus.config.datasource.MultiTenantDatasourceProperties.DataSourceDefinition;
 
-    List<User> getAllUsersByDataSourceName(DataSourceInfo dataSourceInfo);
+public interface UserRepository extends
+        JpaRepository<User, UUID>,
+        UserFilterRepository,
+        QuerydslPredicateExecutor<User> {
 
+    @Query("select u from User u")
+    List<User> getAllUsersByDataSourceName(DataSourceDefinition dataSourceDefinition);
+
+    @Query("select u from User u " +
+           "where u.id = :id")
     Optional<User> findOne(UUID id);
 }

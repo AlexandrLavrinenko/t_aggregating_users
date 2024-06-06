@@ -1,4 +1,4 @@
-package ua.comparus.config;
+package ua.comparus.config.datasource;
 
 import org.mapstruct.factory.Mappers;
 import org.springframework.context.annotation.Bean;
