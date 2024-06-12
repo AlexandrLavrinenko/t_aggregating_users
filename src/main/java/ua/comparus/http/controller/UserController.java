@@ -18,13 +18,6 @@ import java.util.List;
 
 import static ua.comparus.http.controller.OpenApiResponsesExamples.*;
 
-@Tag(name = "User API")
-@ApiResponse(responseCode = "405", description = "Method Not Allowed", content = @Content(
-        schema = @Schema(example = METHOD_NOT_ALLOWED_EXAMPLE)))
-@ApiResponse(responseCode = "406", description = "Not Acceptable", content = {
-        @Content(mediaType = "text/plain", examples = @ExampleObject(value = NOT_ACCEPTABLE_EXAMPLE))})
-@ApiResponse(responseCode = "500", description = "Internal Server Error ", content = @Content(
-        schema = @Schema(example = INTERNAL_SERVER_ERROR_EXAMPLE)))
 @Validated
 @RequestMapping(value = "/api/v1/users", produces = MediaType.APPLICATION_JSON_VALUE)
 public interface UserController {
@@ -36,6 +29,5 @@ public interface UserController {
                     schema = @Schema(implementation = List.class))})},
             description = FIND_ALL_DESCRIPTION)
     @GetMapping
-    @UserFilter.QueryParameters
     List<UserReadResponse> findAll(@Parameter(hidden = true) UserFilter userFilter);
 }
